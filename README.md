@@ -60,8 +60,12 @@
 
 - 宿舍管理页面
 
-![](images/1597378103(1).jpg)
+![](images\1597378103(1).jpg)
 
-### 项目连接
+### 获取项目
 
-[]()
+- [Git仓库地址](https://github.com/czmDeRepository/javaFx)
+
+- 注：运行项目前先在数据库建表management_system.sql
+
+### END
