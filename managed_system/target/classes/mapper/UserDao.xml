@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.czm.managed_system.dao.UserDao">
+
+    <resultMap id="userMap" type="com.czm.managed_system.entity.User">
+        <id column="id" property="id" ></id>
+        <result column="name" property="name" ></result>
+        <result column="password" property="password"></result>
+        <result column="gender" property="gender"></result>
+        <result column="age" property="age"></result>
+        <result column="phone" property="phone"></result>
+        <result column="enabled" property="enabled"></result>
+        <result column="dormitory_id" property="dormitoryId"></result>
+    </resultMap>
+
+    <sql id="base_column">
+        id, name, password, gender, age, phone,enabled,dormitory_id
+    </sql>
+    <sql id="base_value_column">
+        #{id}, #{name}, #{password}, #{gender}, #{age}, #{phone},#{enabled},#{dormitoryId}
+    </sql>
+    <insert id="addUser" parameterType="com.czm.managed_system.entity.User">
+        insert into user (
+          <include refid="base_column"/> ) values (
+          <include refid="base_value_column" />
+        )
+    </insert>
+    
+    <select id="findAll" resultMap="userMap" >
+        select 
+          <include refid="base_column"/>
+        from user where enabled = 1;
+    </select>
+
+    <select id="findAdminByName" resultType="int" >
+        select count(*) from user where enabled = -1 and name = #{name}
+    </select>
+
+    <select id="countAdmin" resultType="int">
+        select count(*) from user where enabled = -1 and name = #{name} and password = #{password};
+    </select>
+
+    <delete id="deleteAdmin" >
+        delete from user where enabled = -1 and name = #{name} and password = #{password};
+    </delete>
+    
+    <select id="findByDormitoryId" parameterType="int" resultMap="userMap">
+        select
+        <include refid="base_column"/>
+        from user where enabled = 1 and dormitory_id = #{dormitoryId};
+    </select>
+
+    <update id="deleteByDormitoryId" parameterType="int">
+      update User set enabled = 0 where dormitory_id = #{dormitoryId} and enabled = 1;
+    </update>
+</mapper>

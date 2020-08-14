@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="525.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="525.0" prefWidth="705.0">
+         <children>
+            <HBox prefHeight="68.0" prefWidth="705.0" />
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="705.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="135.0" text="宿舍名">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="50.0" prefWidth="334.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="92.0" prefWidth="705.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="57.0" prefWidth="138.0" text="类型">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox prefHeight="45.0" prefWidth="341.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="93.0" prefWidth="705.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="135.0" text="状态">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                   <ChoiceBox prefHeight="47.0" prefWidth="341.0">
+                       <String fx:value="空闲"/>
+                       <String fx:value="租用中"/>
+                       <String fx:value="维修"/>
+                   </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15;">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" text="添加">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="137.0" text="修改">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" text="删除">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <Label text="注:删除只需填写宿舍名（其他属性不做校验！）"></Label>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

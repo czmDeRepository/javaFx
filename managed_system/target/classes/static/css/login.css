@@ -1,0 +1,28 @@
+.tab-pane *.tab-header-area *.tab-header-background {
+    -fx-background-color:transparent;
+}
+.tab-pane {
+    -fx-tab-min-width:222px;
+}
+.tab {
+    -fx-font-family: Arial;
+    -fx-font-size: 18;
+}
+
+.tab:selected {
+    -fx-background-color: #d4f7d0;
+}
+.button {
+    -fx-background-color: linear-gradient(to right,#20f5f7,#fff600);
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+.button:pressed {
+    -fx-text-fill: #fef9ff;
+}
+#labelName, #labelPassword {
+    -fx-font-size: 20;
+}
+#cancel {
+    -fx-background-color: linear-gradient(to right,#ff6174,#fff600);
+}

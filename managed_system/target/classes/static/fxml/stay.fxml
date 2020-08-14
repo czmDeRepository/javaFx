@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import com.czm.managed_system.supper.NumberTextField?>
+<AnchorPane fx:id="anchorPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.czm.managed_system.controller.StayController"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/index.css">
+        <children>
+            <VBox layoutX="-2.0" layoutY="-5.0" prefHeight="540.0" prefWidth="707.0">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="681.0">
+                        <children>
+                            <Label alignment="CENTER" prefHeight="59.0" prefWidth="107.0" text="宿舍号">
+                                <font>
+                                    <Font size="21.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="stayName" prefHeight="38.0" prefWidth="173.0" />
+                            <!--<Label alignment="CENTER" prefHeight="54.0" prefWidth="112.0" text="住宿时间">
+                                <font>
+                                    <Font size="20.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="stayTime" prefHeight="41.0" prefWidth="168.0" />-->
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="32.0" prefWidth="600.0">
+                        <children>
+                            <Label alignment="CENTER" prefHeight="35.0" prefWidth="117.0" text="住宿人员">
+                                <font>
+                                    <Font size="19.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="32.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <Label alignment="CENTER" prefHeight="32.0" prefWidth="163.0" text="姓名" />
+                            <Label alignment="CENTER" prefHeight="31.0" prefWidth="93.0" text="性别" />
+                            <Label alignment="CENTER" prefHeight="31.0" prefWidth="96.0" text="年龄" />
+                            <Label alignment="CENTER" prefHeight="31.0" prefWidth="179.0" text="手机号" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <TextField fx:id="tenantName1" prefHeight="38.0" prefWidth="157.0"/>
+                            <ChoiceBox fx:id="tenantGender1" prefHeight="36.0" prefWidth="86.0" value="男">
+                                <String fx:value="男"/>
+                                <String fx:value="女"/>
+                            </ChoiceBox>
+                            <NumberTextField fx:id="tenantAge1" prefHeight="35.0" prefWidth="98.0" />
+                            <NumberTextField fx:id="tenantPhone1" prefHeight="36.0" prefWidth="179.0" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <TextField fx:id="tenantName2" prefHeight="38.0" prefWidth="157.0"/>
+                            <ChoiceBox fx:id="tenantGender2" prefHeight="36.0" prefWidth="86.0" value="男">
+                                <String fx:value="男"/>
+                                <String fx:value="女"/>
+                            </ChoiceBox>
+                            <NumberTextField fx:id="tenantAge2" prefHeight="35.0" prefWidth="98.0" />
+                            <NumberTextField fx:id="tenantPhone2" prefHeight="36.0" prefWidth="179.0" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <TextField fx:id="tenantName3" prefHeight="38.0" prefWidth="157.0"/>
+                            <ChoiceBox fx:id="tenantGender3" prefHeight="36.0" prefWidth="86.0" value="男">
+                                <String fx:value="男"/>
+                                <String fx:value="女"/>
+                            </ChoiceBox>
+                            <NumberTextField fx:id="tenantAge3" prefHeight="35.0" prefWidth="98.0" />
+                            <NumberTextField fx:id="tenantPhone3" prefHeight="36.0" prefWidth="179.0" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <TextField fx:id="tenantName4" prefHeight="38.0" prefWidth="157.0"/>
+                            <ChoiceBox fx:id="tenantGender4" prefHeight="36.0" prefWidth="86.0" value="男">
+                                <String fx:value="男"/>
+                                <String fx:value="女"/>
+                            </ChoiceBox>
+                            <NumberTextField fx:id="tenantAge4" prefHeight="35.0" prefWidth="98.0" />
+                            <NumberTextField fx:id="tenantPhone4" prefHeight="36.0" prefWidth="179.0" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0" style="-fx-spacing: 10;">
+                        <children>
+                            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="197.0" text="确定" onAction="#tenantConfirm">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                            <Button fx:id="cancel" mnemonicParsing="false" prefHeight="39.0" prefWidth="197.0" text="取消" onAction="#exit">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </children>
+</AnchorPane>

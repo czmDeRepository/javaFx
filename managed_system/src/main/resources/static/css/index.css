@@ -1,0 +1,61 @@
+.tab-pane *.tab-header-area *.tab-header-background {
+    -fx-background-color:transparent;
+}
+.tab-pane {
+    -fx-tab-min-width:340px;
+}
+.tab {
+    -fx-font-family: Arial;
+    -fx-font-size: 18;
+}
+
+.tab:selected {
+    -fx-background-color: #b3f7d1;
+}
+.button {
+    -fx-background-color: linear-gradient(to right,#00fffc,#fff600);
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+.button:pressed {
+    -fx-text-fill: #fef9ff;
+}
+#modifyButton {
+    -fx-background-color: linear-gradient(to right,#7248ff,#fff600);
+}
+
+#deleteButton, #cancel, #manageButton {
+    -fx-background-color: linear-gradient(to right,#ff669d,#fff600);
+}
+#refresh{
+    -fx-background-color: linear-gradient(to right,#F9B5FF,#fff600);
+}
+.choice-box{
+    -fx-min-height: 30;
+    -fx-border-width: 2px;    /**边框宽度*/
+    -fx-background-radius: 15px; /**圆角 */
+    -fx-border-color: rgb(179,206,251); /**边框颜色 */
+    -fx-background-color: #ffffff; /**背景颜色 */
+    -fx-mark-color: green ;	/**下拉框箭头颜色和选中后前面√颜色 */
+    -fx-font-size: 15px;	/**字体大小 */
+}
+.choice-box .context-menu{
+    /*-fx-min-width: 334px;*/
+    -fx-font-size: 15px;
+    -fx-background-radius: 15px; /**圆角 */
+}
+#manageType .context-menu, #manageStage .context-menu{
+    -fx-min-width: 330px;
+}
+.list-cell:even {
+    -fx-background-color: #daffec;
+}
+.list-cell:odd {
+    -fx-background-color: #fff0eb;
+}
+.list-cell:selected {
+    -fx-background-color: #5181ff;
+}
+.list-cell:empty {
+    -fx-background-color: #ffffff;
+}

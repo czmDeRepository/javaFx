@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.Cursor?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="708.0" stylesheets="@../css/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.czm.managed_system.controller.IndexController">
+   <children>
+      <TabPane layoutY="-2.0" prefHeight="600" prefWidth="707.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="宿舍列表">
+            <content>
+                <SplitPane dividerPositions="0.13375" prefHeight="558.0" prefWidth="707.0">
+                    <items>
+                        <AnchorPane>
+                           <children>
+                               <!--<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="100" spacing="10.0">-->
+                                  <!--<children>-->
+                                      <!--<Button maxWidth="Infinity" prefWidth="100" text="单人间" VBox.vgrow="ALWAYS" />-->
+                                      <!--<Button maxWidth="Infinity" prefWidth="100" text="双人间" VBox.vgrow="ALWAYS" />-->
+                                      <!--<Button maxWidth="Infinity" prefWidth="100" text="三人间" VBox.vgrow="ALWAYS" />-->
+                                      <!--<Button maxWidth="Infinity" prefWidth="100" text="四人间" VBox.vgrow="ALWAYS" />-->
+                                      <!--<Button maxWidth="Infinity" prefWidth="100" text="五人间" VBox.vgrow="ALWAYS" />-->
+                                  <!--</children>-->
+                               <!--</VBox>-->
+                               <VBox style="-fx-spacing: 15;">
+                                   <Label alignment="BOTTOM_CENTER" text="筛选操作" prefWidth="100.0" prefHeight="25.0"/>
+                                   <ListView fx:id="listView" prefHeight="142.0" prefWidth="100.0" >
+                                       <items>
+                                           <FXCollections fx:factory="observableArrayList">
+                                               <String fx:value="全部" />
+                                               <String fx:value="单人间" />
+                                               <String fx:value="双人间" />
+                                               <String fx:value="三人间" />
+                                               <String fx:value="四人间" />
+                                           </FXCollections>
+                                       </items>
+                                   </ListView>
+                                   <Button text="住宿" onAction="#stayAction" prefHeight="20.0" prefWidth="100.0">
+                                       <font>
+                                           <Font size="17.0" />
+                                       </font>
+                                       <cursor>
+                                           <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                   </Button>
+                                   <Button fx:id="refresh" text="刷新" onAction="#refresh" prefHeight="20.0" prefWidth="100.0">
+                                       <font>
+                                           <Font size="17.0" />
+                                       </font>
+                                       <cursor>
+                                           <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                   </Button>
+                                   <Button fx:id="manageButton" text="管理员" onAction="#manage" prefHeight="20.0" prefWidth="100.0">
+                                       <font>
+                                           <Font size="17.0" />
+                                       </font>
+                                       <cursor>
+                                           <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                   </Button>
+                               </VBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="536.0" prefWidth="599.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+                        <children>
+                            <TableView fx:id="dormitory" prefHeight="562.0" prefWidth="597.0">
+                                <columns>
+                                    <TableColumn fx:id="name" prefWidth="130.0" text="宿舍号" />
+                                    <TableColumn fx:id="type" prefWidth="130.0" text="类型（n人/间）" />
+                                    <!--<TableColumn fx:id="tenant" prefWidth="96.0" text="主要租借人" />-->
+                                    <TableColumn fx:id="stage" minWidth="0.0" prefWidth="100.0" text="状态" />
+                                    <TableColumn fx:id="days" prefWidth="250.0" text="开始租用时间" />
+                                </columns>
+                                <!--<columnResizePolicy>-->
+                                    <!--<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />-->
+                                <!--</columnResizePolicy>-->
+                            </TableView>
+                        </children>
+                        </AnchorPane>
+                    </items>
+                </SplitPane>
+            </content>
+            </Tab>
+            <Tab text="宿舍管理">
+                <content>
+                    <!--<AnchorPane prefHeight="525.0" prefWidth="705.0" >-->
+                        <!--<children>-->
+                            <!--<VBox layoutX="-2.0" layoutY="-5.0" prefHeight="540.0" prefWidth="707.0">-->
+                                <!--<children>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="55.0" prefWidth="681.0">-->
+                                        <!--<children>-->
+                                            <!--<Label alignment="CENTER" prefHeight="59.0" prefWidth="107.0" text="宿舍号">-->
+                                                <!--<font>-->
+                                                    <!--<Font size="21.0" />-->
+                                                <!--</font>-->
+                                            <!--</Label>-->
+                                            <!--<TextField fx:id="stayName" prefHeight="38.0" prefWidth="173.0" />-->
+                                            <!--&lt;!&ndash;<Label alignment="CENTER" prefHeight="54.0" prefWidth="112.0" text="住宿时间">-->
+                                                <!--<font>-->
+                                                    <!--<Font size="20.0" />-->
+                                                <!--</font>-->
+                                            <!--</Label>-->
+                                            <!--<TextField fx:id="stayTime" prefHeight="41.0" prefWidth="168.0" />&ndash;&gt;-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="32.0" prefWidth="600.0">-->
+                                        <!--<children>-->
+                                            <!--<Label alignment="CENTER" prefHeight="35.0" prefWidth="117.0" text="住宿人员">-->
+                                                <!--<font>-->
+                                                    <!--<Font size="19.0" />-->
+                                                <!--</font>-->
+                                            <!--</Label>-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="32.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<Label alignment="CENTER" prefHeight="32.0" prefWidth="163.0" text="姓名" />-->
+                                            <!--<Label alignment="CENTER" prefHeight="31.0" prefWidth="93.0" text="性别" />-->
+                                            <!--<Label alignment="CENTER" prefHeight="31.0" prefWidth="96.0" text="年龄" />-->
+                                            <!--<Label alignment="CENTER" prefHeight="31.0" prefWidth="179.0" text="手机号" />-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<TextField fx:id="tenantName1" prefHeight="38.0" prefWidth="157.0"/>-->
+                                            <!--<ChoiceBox fx:id="tenantGender1" prefHeight="36.0" prefWidth="86.0" value="男">-->
+                                                <!--<String fx:value="男"/>-->
+                                                <!--<String fx:value="女"/>-->
+                                            <!--</ChoiceBox>-->
+                                            <!--<TextField fx:id="tenantAge1" prefHeight="35.0" prefWidth="98.0" />-->
+                                            <!--<TextField fx:id="tenantPhone1" prefHeight="36.0" prefWidth="179.0" />-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<TextField fx:id="tenantName2" prefHeight="38.0" prefWidth="157.0"/>-->
+                                            <!--<ChoiceBox fx:id="tenantGender2" prefHeight="36.0" prefWidth="86.0" value="男">-->
+                                                <!--<String fx:value="男"/>-->
+                                                <!--<String fx:value="女"/>-->
+                                            <!--</ChoiceBox>-->
+                                            <!--<TextField fx:id="tenantAge2" prefHeight="35.0" prefWidth="98.0" />-->
+                                            <!--<TextField fx:id="tenantPhone2" prefHeight="36.0" prefWidth="179.0" />-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<TextField fx:id="tenantName3" prefHeight="38.0" prefWidth="157.0"/>-->
+                                            <!--<ChoiceBox fx:id="tenantGender3" prefHeight="36.0" prefWidth="86.0" value="男">-->
+                                                <!--<String fx:value="男"/>-->
+                                                <!--<String fx:value="女"/>-->
+                                            <!--</ChoiceBox>-->
+                                            <!--<TextField fx:id="tenantAge3" prefHeight="35.0" prefWidth="98.0" />-->
+                                            <!--<TextField fx:id="tenantPhone3" prefHeight="36.0" prefWidth="179.0" />-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<TextField fx:id="tenantName4" prefHeight="38.0" prefWidth="157.0"/>-->
+                                            <!--<ChoiceBox fx:id="tenantGender4" prefHeight="36.0" prefWidth="86.0" value="男">-->
+                                                <!--<String fx:value="男"/>-->
+                                                <!--<String fx:value="女"/>-->
+                                            <!--</ChoiceBox>-->
+                                            <!--<TextField fx:id="tenantAge4" prefHeight="35.0" prefWidth="98.0" />-->
+                                            <!--<TextField fx:id="tenantPhone4" prefHeight="36.0" prefWidth="179.0" />-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                    <!--<HBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0" style="-fx-spacing: 10;">-->
+                                        <!--<children>-->
+                                            <!--<Button mnemonicParsing="false" prefHeight="39.0" prefWidth="197.0" text="">-->
+                                                <!--<cursor>-->
+                                                    <!--<Cursor fx:constant="HAND" />-->
+                                                <!--</cursor>-->
+                                            <!--</Button>-->
+                                        <!--</children>-->
+                                    <!--</HBox>-->
+                                <!--</children>-->
+                            <!--</VBox>-->
+                        <!--</children>-->
+                    <!--</AnchorPane>-->
+                    <AnchorPane prefHeight="525.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                        <children>
+                            <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="525.0" prefWidth="705.0">
+                                <children>
+                                    <HBox prefHeight="68.0" prefWidth="705.0" />
+                                    <HBox alignment="CENTER" prefHeight="78.0" prefWidth="705.0">
+                                        <children>
+                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="135.0" text="宿舍名">
+                                                <font>
+                                                    <Font size="20.0" />
+                                                </font>
+                                            </Label>
+                                            <TextField fx:id="manageName" prefHeight="50.0" prefWidth="334.0" />
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="92.0" prefWidth="705.0">
+                                        <children>
+                                            <Label alignment="CENTER" prefHeight="57.0" prefWidth="138.0" text="类型(n人/间)">
+                                                <font>
+                                                    <Font size="20.0" />
+                                                </font>
+                                            </Label>
+                                            <ChoiceBox fx:id="manageType" prefHeight="45.0" prefWidth="334.0" value="1">
+                                                <String fx:value="1"/>
+                                                <String fx:value="2"/>
+                                                <String fx:value="3"/>
+                                                <String fx:value="4"/>
+                                            </ChoiceBox>
+
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="93.0" prefWidth="705.0">
+                                        <children>
+                                            <Label alignment="CENTER" prefHeight="51.0" prefWidth="135.0" text="状态">
+                                                <font>
+                                                    <Font size="20.0" />
+                                                </font>
+                                            </Label>
+                                            <ChoiceBox fx:id="manageStage" prefHeight="47.0" prefWidth="334.0" value="空闲">
+                                                <String fx:value="空闲"/>
+                                                <String fx:value="租用中"/>
+                                                <String fx:value="维修中"/>
+                                            </ChoiceBox>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15;">
+                                        <children>
+                                            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" text="添加" onAction="#add">
+                                                <font>
+                                                    <Font size="18.0" />
+                                                </font>
+                                                <cursor>
+                                                    <Cursor fx:constant="HAND" />
+                                                </cursor>
+                                            </Button>
+                                            <Button fx:id="modifyButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="137.0" text="修改" onAction="#modify">
+                                                <font>
+                                                    <Font size="18.0" />
+                                                </font>
+                                                <cursor>
+                                                    <Cursor fx:constant="HAND" />
+                                                </cursor>
+                                            </Button>
+                                            <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" text="删除" onAction="#delete">
+                                                <font>
+                                                    <Font size="18.0" />
+                                                </font>
+                                                <cursor>
+                                                    <Cursor fx:constant="HAND" />
+                                                </cursor>
+                                            </Button>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_CENTER" prefHeight="120.0" prefWidth="200.0">
+                                        <Label text="注:删除只需填写宿舍名（其他属性不做校验！）"></Label>
+                                    </HBox>
+                                </children>
+                            </VBox>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

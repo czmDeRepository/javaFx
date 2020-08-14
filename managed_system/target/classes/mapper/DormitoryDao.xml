@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.czm.managed_system.dao.DormitoryDao">
+
+    <resultMap id="dormitoryMap" type="com.czm.managed_system.entity.Dormitory">
+        <id column="id" property="id" ></id>
+        <result column="name" property="name" ></result>
+        <result column="stage" property="stage"></result>
+        <result column="startTime" property="startTime"></result>
+        <result column="type" property="type"></result>
+    </resultMap>
+
+    <sql id="base_column">
+        id, name, stage, startTime, type
+    </sql>
+    <sql id="base_value_column">
+        #{id}, #{name}, #{stage}, #{startTime}, #{type}
+    </sql>
+    <sql id="set_column">
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="stage != null">
+            stage = #{stage},
+        </if>
+        <if test="startTime != null">
+            startTime = #{startTime},
+        </if>
+        <if test="type != null">
+            type = #{type}
+        </if>
+    </sql>
+
+    <select id="findAll" resultMap="dormitoryMap" >
+        select
+        <include refid="base_column"/>
+        from dormitory;
+    </select>
+    <select id="findByType" parameterType="int" resultMap="dormitoryMap" >
+        select
+        <include refid="base_column"/>
+        from dormitory where type = #{type};
+    </select>
+    
+    <select id="findByName" parameterType="String" resultMap="dormitoryMap">
+        select
+          <include refid="base_column" />
+         from dormitory where name = #{name}
+    </select>
+    
+    <insert id="insert" parameterType="com.czm.managed_system.entity.Dormitory">
+        insert dormitory (
+          <include refid="base_column" />
+        ) values (
+          <include refid="base_value_column" />
+        )
+    </insert>
+    
+    <delete id="deleteByName" parameterType="String">
+        delete from dormitory where name = #{name}
+    </delete>
+    
+    <update id="update" parameterType="com.czm.managed_system.entity.Dormitory">
+        <selectKey keyProperty='id' resultType='java.lang.Integer' order='AFTER'>
+            select id from dormitory where name = #{name}
+        </selectKey>
+        update dormitory
+        <set>
+          <include refid="set_column" />
+        </set>
+        where name = #{name}
+    </update>
+
+    <update id="reSet">
+        update dormitory set startTime=null , stage=#{stage} where name = #{name};
+    </update>
+
+</mapper>
